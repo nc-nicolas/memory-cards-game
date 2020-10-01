@@ -1,0 +1,18 @@
+body{
+    background-color: black;
+    font-family: 'Indie Flower', cursive;
+    margin: 0px;
+}
+
+.titles{
+    color: blanchedalmond; 
+    font-size: 60px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.small{
+    color: gray; 
+    font-size: 30px;
+    margin-top: 0px;
+}
