@@ -1,9 +1,10 @@
 body{
     background-color: black;
+    color: white ;
     font-family: 'Indie Flower', cursive;
     font-size: 20px;
-    color: white ;
     margin: 0px;
+    width: 100vw;
 }
 
 .titles{
@@ -23,4 +24,28 @@ body{
     align-items: center;
     display: flex;
     justify-content: center;
+}
+
+.tricki-row{
+    /* background-color: green; */
+}
+
+.tricki-cell{
+    background-color: #062726;
+    border-radius: 15px;
+    font-size: 50px;
+    margin: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 125px; 
+    width: 125px;
+}
+
+.main-container{
+    /* background-color: red;  */
+    flex-direction: column;
+    padding: 50px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 100vw; 
 }
