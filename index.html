@@ -25,14 +25,17 @@
     animate__animated animate__bounceInLeft animate__delay-2s">
 
         <div class="centered-container tricki-row">
-            <div class="centered-container tricki-cell">1</div>
+            <div class="centered-container tricki-cell onhover-card">1</div>
             <div class="centered-container tricki-cell">2</div>
-            <div class="centered-container tricki-cell">3</div>
+            <div class="centered-container tricki-cell"
+            onmouseover="console.log('Hice over');"
+            onmouseout="console.log('Me fui :c');">3</div>
         </div>
         <div class="centered-container tricki-row">
             <div class="centered-container tricki-cell">4</div>
             <div class="centered-container tricki-cell">5</div>
-            <div class="centered-container tricki-cell">6</div>
+            <div class="centered-container tricki-cell"
+            id="numberSixCard">6</div>
         </div>
         <div class="centered-container tricki-row">
             <div class="centered-container tricki-cell">7</div>
@@ -41,6 +44,9 @@
         </div>
 
     </div>
+
+    <script type="text/javascript" src="./index.js"></script>
+
 </body>
 
 </html>
