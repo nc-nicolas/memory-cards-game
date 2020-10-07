@@ -1,11 +1,16 @@
-let myNumberSixCard = document.getElementById("numberSixCard");
+function setPopEffectOnCards() {
+    let myItems = document.getElementsByClassName('centered-container tricki-cell');
+    for (let i = 0; i < myItems.length; i++) {
+        let myCard = myItems[i];
 
-myNumberSixCard.addEventListener('mouseover', () => {
-    // myNumberSixCard.className = "centered-container tricki-cell onhover-card";
-    myNumberSixCard.classList.add("onhover-card");
-});
+        myCard.addEventListener('mouseover', () => {
+            myCard.classList.add("onhover-card");
+        });
 
-myNumberSixCard.addEventListener('mouseout', () => {
-    // myNumberSixCard.className = "centered-container tricki-cell";
-    myNumberSixCard.classList.remove("onhover-card");
-});
+        myCard.addEventListener('mouseout', () => {
+            myCard.classList.remove("onhover-card");
+        });
+    }
+}
+
+setPopEffectOnCards();
