@@ -17,14 +17,12 @@ function appendCardsRowToContainer(container) {
 }
 
 
-let myCounter = 1;
 let myCardsContainer = document.getElementById('mainCardsContainer');
 for (let i = 1; i <= 3; i++) {
     let myNewRow = appendCardsRowToContainer(mainCardsContainer);
 
     for (let k = 1; k <= 3; k++) {
-        appendCardToParent(myNewRow, myCounter);
-        myCounter++;
+        appendCardToParent(myNewRow, 3 * (i - 1) + k);
     }
 
 }
