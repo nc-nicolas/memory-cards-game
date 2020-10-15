@@ -53,3 +53,10 @@ body{
 .onhover-card{
     transform: scale(1.15);
 }
+
+.adjusted-card{
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

@@ -1,11 +1,27 @@
-//import myEffectsUtils from './scripts/effects';
-
-function appendCardToParent(parent, number) {
+function appendCardToParent(parent) {
     let myNewCard = document.createElement('div');
-    myNewCard.className = "centered-container tricki-cell";
-    myNewCard.innerHTML = number;
+    myNewCard.className = "centered-container tricki-cell adjusted-card";
 
-    parent.appendChild(myNewCard);
+    fetch('https://deckofcardsapi.com/api/deck/lmc3oztwn7ii/draw/?count=1', {
+        method: 'GET'
+    })
+        .then(serverResponse => {
+            serverResponse.json()
+                .then(cardData => {
+                    console.log('Mis datos: ', cardData);
+
+                    myNewCard.style = "background-image: url(" +
+                        cardData.cards[0].image + ")";
+                        
+                    parent.appendChild(myNewCard);
+                })
+                .catch(error => {
+
+                });
+        })
+        .catch(error => {
+
+        });
 }
 
 function appendCardsRowToContainer(container) {
@@ -22,7 +38,7 @@ for (let i = 1; i <= 3; i++) {
     let myNewRow = appendCardsRowToContainer(mainCardsContainer);
 
     for (let k = 1; k <= 3; k++) {
-        appendCardToParent(myNewRow, 3 * (i - 1) + k);
+        appendCardToParent(myNewRow);
     }
 
 }
