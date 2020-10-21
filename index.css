@@ -26,18 +26,24 @@ body{
     justify-content: center;
 }
 
-.tricki-row{
-    /* background-color: green; */
-}
-
-.tricki-cell{
+.game-card{
     background-color: #062726;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     border-radius: 15px;
     font-size: 50px;
     height: 22vh; 
-    width: 175px;
-    margin-top: 15px;
     margin-bottom: 15px;
+    margin-top: 15px;
+    width: 175px;
+}
+
+.game-card:hover{
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(1.15);
 }
 
 .main-container{
@@ -47,15 +53,4 @@ body{
     padding-right: 0px;
     padding-left: 0px;
     width: 100vw; 
-}
-
-.onhover-card{
-    transform: scale(1.15);
-}
-
-.adjusted-card{
-    background-color: transparent;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
 }

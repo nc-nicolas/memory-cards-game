@@ -1,19 +1,45 @@
-function appendCardToParent(parent) {
+function appendCardToParent(parent, cardData) {
     let myNewCard = document.createElement('div');
-    myNewCard.className = "col-12 col-md-4 tricki-cell adjusted-card ";
+    myNewCard.className = "col-12 col-md-3 game-card";
+    myNewCard.style = "background-image: url(" + cardData.image + ")";
+    myNewCard.cardValue = cardData.value;
 
-    fetch('https://deckofcardsapi.com/api/deck/7wj5mi3u2nvx/draw/?count=1', {
+    myNewCard.addEventListener('click',()=>{
+        console.log('Pressed card with value: ',cardData.value);    
+    });
+
+    parent.appendChild(myNewCard);
+}
+
+function createCards(deckId) {
+    fetch('https://deckofcardsapi.com/api/deck/'+deckId+'/draw/?count=6', {
         method: 'GET'
     })
         .then(serverResponse => {
             serverResponse.json()
-                .then(cardData => {
-                    console.log('Mis datos: ', cardData);
+                .then(apiResult => {
+                    
+                    let cardsArray =[];
+                    
+                    apiResult.cards.forEach((item, i) => {
+                        cardsArray.push({
+                            image: item.image,
+                            value: item.code
+                        });
 
-                    myNewCard.style = "background-image: url(" +
-                        cardData.cards[0].image + ")";
+                        cardsArray.push({
+                            image: item.image,
+                            value: item.code
+                        });
+                    });
 
-                    parent.appendChild(myNewCard);
+                    cardsArray = cardsArray.sort( () => .5 - Math.random() );
+
+                    let cardsContainer = document.getElementById('cardsContainer')
+                    cardsArray.forEach(card => {
+                        appendCardToParent(cardsContainer, card);
+                    });
+
                 })
                 .catch(error => {
 
@@ -24,8 +50,22 @@ function appendCardToParent(parent) {
         });
 }
 
+function buildGame(){
+    fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1', {
+        method: 'GET'
+    })
+        .then(serverResponse => {
+            serverResponse.json()
+                .then(deckData => {
+                    createCards(deckData.deck_id)
+                })
+                .catch(error => {
 
-let myContainer = document.getElementById('cardsContainer')
-for (let i = 1; i <= 9; i++) {
-    appendCardToParent(myContainer);
+                });
+        })
+        .catch(error => {
+
+        });
 }
+
+buildGame();
