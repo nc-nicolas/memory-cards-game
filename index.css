@@ -34,11 +34,10 @@ body{
     background-color: #062726;
     border-radius: 15px;
     font-size: 50px;
-    margin: 10px;
-    margin-left: 50px;
-    margin-right: 50px;
-    height: 125px; 
-    width: 125px;
+    height: 22vh; 
+    width: 175px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .main-container{
