@@ -1,6 +1,7 @@
 const BACK_CARD_IMAGE = 'https://opengameart.org/sites/default/files/card%20back%20red.png';
 
 let activeCard = null;
+let pairsFound = 0;
 
 function printActiveCardValue(){
     console.log('Active card: ', activeCard);
@@ -16,7 +17,7 @@ function appendCardToParent(parent, cardData) {
 
     myNewCard.addEventListener('click', () => {
         if(myNewCard.showCard === true){
-            //myNewCard.style = "background-image: url(" + BACK_CARD_IMAGE + ")";
+            myNewCard.style = "background-image: url(" + BACK_CARD_IMAGE + ")";
             myNewCard.showCard = false;
         }
         else{
@@ -26,7 +27,11 @@ function appendCardToParent(parent, cardData) {
 
         if(!activeCard){
             activeCard = myNewCard.cardValue;
-            console.log('CARTA ACTIVA -> ', activeCard);
+            pairsFound++;
+
+            if (pairsFound === 6) {
+                console.log('Gané :)');
+            }
         }
         else{
             if(activeCard === myNewCard.cardValue){
@@ -55,6 +60,7 @@ function swipCardsBackByValue(value) {
 
         if (myCard.cardValue === value) {
             myCard.style = "background-image: url(" + BACK_CARD_IMAGE + ")";
+            myCard.showCard = false;
         }
     }
 
