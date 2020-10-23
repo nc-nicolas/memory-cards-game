@@ -1,9 +1,10 @@
 body{
     background-color: black;
+    color: white ;
     font-family: 'Indie Flower', cursive;
     font-size: 20px;
-    color: white ;
     margin: 0px;
+    width: 100vw;
 }
 
 .titles{
@@ -23,4 +24,33 @@ body{
     align-items: center;
     display: flex;
     justify-content: center;
+}
+
+.game-card{
+    background-color: #062726;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 15px;
+    font-size: 50px;
+    height: 22vh; 
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 175px;
+}
+
+.game-card:hover{
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(1.15);
+}
+
+.main-container{
+    /* background-color: red;  */
+    flex-direction: column;
+    padding: 50px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 100vw; 
 }
